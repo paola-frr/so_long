@@ -1,10 +1,10 @@
 NAME			= so_long
 
 SRCS 			= 	./main.c \
-					./check_path.c \
 					./get_map.c \
-					./create_map.c \
+					./create_window.c \
 					./check_input.c \
+					./move.c \
 					./check_input_utils.c
 
 GNL				=	./get_next_line/get_next_line.c \

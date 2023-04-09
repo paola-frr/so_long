@@ -32,6 +32,8 @@ MANDATORY_SRCS = ./ft_isalpha.c\
 				 ./ft_strmapi.c\
 				 ./ft_strtrim.c\
 				 ./ft_itoa.c\
+				 ./ft_printf.c\
+				 ./ft_printf_utils.c\
 				 ./ft_striteri.c\
 				 ./ft_split.c
 

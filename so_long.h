@@ -6,7 +6,7 @@
 /*   By: pferreir <pferreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 22:50:03 by pferreir          #+#    #+#             */
-/*   Updated: 2023/04/07 04:12:16 by pferreir         ###   ########.fr       */
+/*   Updated: 2023/04/09 05:10:34 by pferreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@
 # include "libft/libft.h"
 # include "mlx/mlx.h"
 
-typedef struct s_position
-{
-	int	p[2];
-	int	e[2];
-}			t_position;
-
 typedef struct s_element
 {
 	int	c;
@@ -37,30 +31,35 @@ typedef struct s_element
 typedef struct s_data
 {
 	char		**map;
-	int			posx;
-	int			posy;
+	int			px;
+	int			py;
+	int			ex;
+	int			ey;
 	t_element	elem;
 	int			nbline;
 	int			nbcol;
 	void		*mlx;
-	void		*mlx_win;
+	void		*win;
 	void		*img;
-	char		*addr;
-	int			img_height;
-	int			img_width;
+	char		*add;
+	int			ih;
+	int			iw;
 	void		*fish;
 	void		*shark;
 	void		*wall;
-	void		*ocean;
+	void		*sea;
 	void		*cave;
+	void		*ccave;
+	void		*b;
+	void		*h;
+	void		*d;
+	void		*g;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;
-	int			fposx;
-	int			fposy;
+	int			counter;
 }				t_data;
 
-void	print_map(char **map);
 int		correct_file(const char *pathname);
 char	**get_map(int fd);
 int		check_border(char **map, int i);
@@ -74,5 +73,16 @@ int		transform_path(char **map, int i, int j);
 int		search_ec(char **map);
 char	**dup_map(char **map);
 void	ft_put_image_to_window(t_data data);
+
+int		check_input_data(t_data *data, int key);
+int		input_data(int key, t_data *data);
+int		close_win(t_data *data);
+int		key_hook(int keycode, t_data *data);
+
+void	init_game(t_data data);
+void	make_move(t_data *d, int key, int x, int y);
+
+void	*direction(t_data *d, int x, int y);
+void	open_exit(t_data *d);
 
 #endif

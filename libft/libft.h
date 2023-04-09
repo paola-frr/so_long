@@ -6,7 +6,7 @@
 /*   By: pferreir <pferreir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:21:22 by pferreir          #+#    #+#             */
-/*   Updated: 2023/04/04 21:14:51 by pferreir         ###   ########.fr       */
+/*   Updated: 2023/04/09 02:14:02 by pferreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -68,5 +69,13 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 void			ft_freetab(char **tab);
 char			*ft_realloc(char *s1, char *s2);
+int				ft_printf(const char *format, ...);
+int				ft_putchar(char c);
+int				ft_putstr(char *s);
+int				ft_putnbr(int nb);
+int				ft_hexa(unsigned long nb, int s);
+int				ft_unsigned_int(unsigned int nb);
+void			print(char c, va_list pr, int *i);
+int				ft_pointer(unsigned long n);
 
 #endif
